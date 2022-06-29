@@ -1,8 +1,7 @@
-*human-time.txt* Neovim plugin for asynchronously converting timestamps
-                 to human-readable format.
-
+*human-time.txt* Neovim plugin for converting timestamps to human-readable
+               format.
 Author:  Dylan Semler (dsem) <dylan.semler@gmail.com>
-License: Same terms as Vim itself (see |license|)
+License: MIT
 
 CONTENTS                                                *human-time-contents*
 ===========================================================================
@@ -25,6 +24,7 @@ the day-of-week, month, date, and timezone.
 >
     1656467199
     "datetime": 1656467199,
+<
 
 INSTALLATION                                        *human-time-installation*
 ===========================================================================
