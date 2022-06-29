@@ -1,0 +1,57 @@
+*human-time.txt* Neovim plugin for asynchronously converting timestamps
+                 to human-readable format.
+
+Author:  Dylan Semler (dsem) <dylan.semler@gmail.com>
+License: Same terms as Vim itself (see |license|)
+
+CONTENTS                                                *human-time-contents*
+===========================================================================
+
+Introduction.................................|human-time-introduction|
+Installation.................................|human-time-installation|
+Commands.....................................|human-time-commands|
+
+INTRODUCTION                                        *human-time-introduction*
+===========================================================================
+
+This plugin will display the human-readable datetime of a unix timestamp in
+
+All identifying and converting of timestamps is done with unix utilities like
+`grep`, `sed`, and `date`. Any 10-digit number is identified as a unix
+timestamp.
+
+This means the following will display a time in human-readable form, including
+the day-of-week, month, date, and timezone.
+>
+    1656467199
+    "datetime": 1656467199,
+
+INSTALLATION                                        *human-time-installation*
+===========================================================================
+
+Simply leverage your plugin manager to install human-time: >
+    " vim-plug
+    Plug 'dsem/nvim-human-time'
+
+    " minpac
+    call minpac#add('dsem/nvim-human-time)'
+
+    " dein
+    call dein#add('dsem/nvim-human-time')
+
+    " etc.
+<
+
+Note: This has been tested on Linux and MacOS with Bash. If you find an issue,
+    open an issue at https://github.com/dsem/nvim-human-time/issues.
+
+COMMANDS                                                *human-time-commands*
+===========================================================================
+
+ ----------------------+-------------------------------------------------
+ Command               | Description
+ ----------------------+-------------------------------------------------
+  `HumanTimeToggle`     | Toggle the timestamp conversion
+  `HumanTimeTurnOn`     | Turn on timestamp conversions (refresh if already turned on)
+  `HumanTimeTurnOff`    | Turn off timestamp conversions
+ ----------------------+-------------------------------------------------
