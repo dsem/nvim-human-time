@@ -35,7 +35,12 @@ fun! scraper#on() abort
                         \ 'close_cb': function('s:on_exit_vim'),
                         \ }
         endif
-        let cmd = "grep -Eon '\\b[0-9]{10}\\b' ".tmpname." | sed -r 's#([0-9]+):(\\b[0-9]{10}\\b)#printf \"%s\" \"\\1|\" \"$(date -d @\\2)\"#e'"
+        if has('macunix')
+            let date_cmd = 'date -r '
+        else
+            let date_cmd = 'date -d @'
+        endif
+        let cmd = "grep -Eon '\\b[0-9]{10}\\b' ".tmpname." | sed -r 's#([0-9]+):(\\b[0-9]{10}\\b)#printf \"%s\" \"\\1|\" \"$(".date_cmd."\\2)\"#e'"
 
         if has('nvim')
             let b:humantime_job_id = jobstart(cmd, opts)
