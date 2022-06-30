@@ -40,7 +40,7 @@ fun! scraper#on() abort
         else
             let date_cmd = 'date -d @'
         endif
-        let cmd = "grep -Eon '\\b[0-9]{10}\\b' ".tmpname." | sed -r 's#([0-9]+):(\\b[0-9]{10}\\b)#printf \"%s\" \"\\1|\" \"$(".date_cmd."\\2)\"#e'"
+        let cmd = "grep -Eon '\\b[0-9]{10}\\b' ".tmpname." | sed -r 's#([0-9]+):(\\b[0-9]{10}\\b)#printf \"%s\" \"\\1|\" \"$(".date_cmd."\\2)\"# | sh'"
 
         if has('nvim')
             let b:humantime_job_id = jobstart(cmd, opts)
